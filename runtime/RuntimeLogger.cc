@@ -600,7 +600,7 @@ RuntimeLogger::compressionThreadMain() {
             ssize_t bytesOver = bytesToWrite % 512;
 
             if (bytesOver != 0) {
-                memset(compressingBuffer, 0, 512 - bytesOver);
+                memset(compressingBuffer+bytesToWrite, 0, 512 - bytesOver);
                 bytesToWrite = bytesToWrite + 512 - bytesOver;
                 padBytesWritten += (512 - bytesOver);
             }
